@@ -44,7 +44,7 @@ hbase-site.xml
 
 ### 0，获取Connection连接
 ConnectionUtil.java
-[案例](my-hbase-study/src/main/java/com/wenthomas/hbase/)<br/>
+[案例](my-hbase-study/src/main/java/com/wenthomas/hbase/ConnectionUtil.java)<br/>
 ### 1，数据库操作
 NameSpaceUtil.java
 [案例](my-hbase-study/src/main/java/com/wenthomas/hbase/)<br/>

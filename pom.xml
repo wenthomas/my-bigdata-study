@@ -11,6 +11,7 @@
     <modules>
         <module>my-flume-study</module>
         <module>my-hbase-study</module>
+        <module>my-scala-study</module>
     </modules>
 
     <properties>

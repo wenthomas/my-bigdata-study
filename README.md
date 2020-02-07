@@ -38,14 +38,19 @@
 ```
 备注：<br/>
 在对HBase执行增删改查时，只需要引入hbase-client模块即可，运行MR操作hbase时，需要引入hbase-server。
-拷贝hdfs-site.xml文件到客户端的类路径下！
-[配置文件](src/main/resources/hbase-site.xml)<br/>
+拷贝hdfs-site.xml文件到客户端的类路径下！<br/>
+hbase-site.xml
+[配置文件](src/main/resources/)<br/>
 
 ### 0，获取Connection连接
-[案例](src/main/java/com/wenthomas/hbase/ConnectionUtil.java)<br/>
+ConnectionUtil.java
+[案例](src/main/java/com/wenthomas/hbase/)<br/>
 ### 1，数据库操作
-[案例](src/main/java/com/wenthomas/hbase/NameSpaceUtil.java)<br/>
+NameSpaceUtil.java
+[案例](src/main/java/com/wenthomas/hbase/)<br/>
 ### 2，数据库表操作
-[案例](src/main/java/com/wenthomas/hbase/TableUtil.java)<br/>
+TableUtil.java
+[案例](src/main/java/com/wenthomas/hbase/)<br/>
 ### 3，数据操作
-[案例](src/main/java/com/wenthomas/hbase/DataUtil.java)<br/>
+DataUtil.java
+[案例](src/main/java/com/wenthomas/hbase/)<br/>

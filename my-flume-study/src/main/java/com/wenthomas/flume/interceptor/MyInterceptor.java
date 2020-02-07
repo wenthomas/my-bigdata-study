@@ -45,7 +45,7 @@ public class MyInterceptor implements Interceptor {
     /**
      * Builder
      */
-    public static class MyBuilder implements Interceptor.Builder {
+    public static class MyBuilder implements Builder {
 
         public Interceptor build() {
             return new MyInterceptor();

@@ -54,3 +54,9 @@ TableUtil.java
 ### 3，数据操作
 DataUtil.java
 [案例](my-hbase-study/src/main/java/com/wenthomas/hbase/DataUtil.java)<br/>
+### 4，hbase mr案例一：
+[案例](my-hbase-study/src/main/java/com/wenthomas/hbase/mr1/)
+MR读取hbase中t2表的部分数据写入到t4表中<br/>
+### 5，hbase mr案例二：
+[案例](my-hbase-study/src/main/java/com/wenthomas/hbase/mr2/)
+MR读取HDFS中的数据并写入到hbase表中<br/>

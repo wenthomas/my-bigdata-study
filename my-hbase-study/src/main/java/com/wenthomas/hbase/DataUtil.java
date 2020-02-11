@@ -10,6 +10,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Verno
@@ -145,5 +147,96 @@ public class DataUtil {
                         "  值:"+Bytes.toString(CellUtil.cloneValue(cell)));
             }
         }
+    }
+
+    /**
+     * scan多行扫描查询
+     * @param conn
+     * @param tableName
+     * @param nsname
+     * @param startRow
+     * @param stopRow
+     */
+    public static void scan(Connection conn,String tableName,String nsname,String startRow,String stopRow) throws IOException {
+        //0, 获取Table对象
+        Table table = getTable(conn, tableName, nsname);
+
+        //1, 新建scan对象
+        Scan scan = new Scan();
+
+        //2, 扫描设置
+        scan.setStartRow(Bytes.toBytes(startRow));
+        scan.setStopRow(Bytes.toBytes(stopRow));
+
+        //3, 扫描获取结果集
+        ResultScanner scanner = table.getScanner(scan);
+
+        for (Result result : scanner) {
+            //4, 遍历解析
+            parseResult(result);
+        }
+
+        //4, 关闭Table
+        table.close();
+    }
+
+    public static void scan(Connection conn,String tableName,String nsname) throws IOException {
+        //0, 获取Table对象
+        Table table = getTable(conn, tableName, nsname);
+
+        //1, 新建scan对象
+        Scan scan = new Scan();
+
+        //3, 扫描获取结果集
+        ResultScanner scanner = table.getScanner(scan);
+
+        for (Result result : scanner) {
+            //4, 遍历解析
+            parseResult(result);
+        }
+
+        //4, 关闭Table
+        table.close();
+    }
+
+    public static boolean delete(Connection conn, String tableName, String nsname, String ... rowKeys) throws IOException {
+
+        List<Delete> list = new ArrayList<>();
+
+        //0，获取Table对象
+        Table table = getTable(conn, tableName, nsname);
+
+        if (null == table) {
+            return false;
+        }
+
+        //1，构建delete对象
+        for (String rowKey : rowKeys) {
+            Delete delete = new Delete(Bytes.toBytes(rowKey));
+
+            //2，设置delete属性参数
+
+//             删除某个具体的列,为此列的最新的cell，添加一条type=DELETE的标记，只能删除最新的一条记录，如果有
+//             历史版本的记录，无法删除
+//            delete.addColumn(Bytes.toBytes("cf1"), Bytes.toBytes("age"));
+//
+//            删除指定列的所有版本的数据，为当前列生成一个type=DeleteColumn的标记的记录
+//            delete.addColumns(Bytes.toBytes("cf1"), Bytes.toBytes("age"));
+//
+//            删除整个列族
+//            delete.addFamily(Bytes.toBytes("cf2"));
+
+            //删除整行
+            list.add(delete);
+        }
+
+        //3，删除操作
+        table.delete(list);
+
+        //4，关闭table
+        table.close();
+
+        logger.info("删除数据成功！");
+        return true;
     }
 }

@@ -46,7 +46,12 @@ public class MyRunner {
 
 //            DataUtil.put(conn, "student", "default", "1003", "info", "name", "Thomas");
 
-            DataUtil.get(conn, "student", "default", "1003");
+//            DataUtil.get(conn, "student", "default", "1003");
+
+//            DataUtil.scan(conn, "mr2_2", "default", "1001", "1004");
+            DataUtil.scan(conn, "mr2_2", "default");
+
+//            DataUtil.delete(conn, "student", "default", "1003");
 
         } catch (IOException e) {
             e.printStackTrace();

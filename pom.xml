@@ -13,6 +13,7 @@
         <module>my-hbase-study</module>
         <module>my-scala-study</module>
         <module>my-hadoop-study</module>
+        <module>my-log-collector</module>
     </modules>
 
     <properties>

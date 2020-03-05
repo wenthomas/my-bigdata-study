@@ -18,7 +18,7 @@ object HighFunctions {
 
 
         //模拟filter过滤：将大于10的数筛选出来
-        foreach(filter(arr1,(x:Int) => x > 10), println)
+        foreach(filter(arr1, _ > 10), println)
         println("------------------------------------------")
 
         //模拟reduce聚合

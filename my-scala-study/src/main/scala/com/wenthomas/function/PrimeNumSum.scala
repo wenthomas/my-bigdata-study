@@ -9,8 +9,9 @@ object PrimeNumSum {
     def main(args: Array[String]): Unit = {
 
         //初始化数据
-        val arr = data(100, 10000)
-
+        //val arr = data(100, 10000)
+        val arr = (100 to 10000).toArray
+        //HighFunctions.foreach(filter(arr, PrimeNum.isPrimeNum), println)
         println(reduce(filter(arr, PrimeNum.isPrimeNum), _ + _))
 
     }

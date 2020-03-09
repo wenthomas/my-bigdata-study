@@ -1,5 +1,7 @@
 package com.wenthomas.collections.homework
 
+import java.util
+
 import scala.collection.mutable
 
 /**
@@ -18,8 +20,16 @@ object MyReverse extends App {
 
         def myReverse():List[Any] = {
             val stack = mutable.Stack[Any]()
-
+            //方法一：利用栈结构的原理实现
             it.foldLeft(stack)((stack, i) => stack.push(i)).toList
+
+            //方法二：利用foldLeft
+            //it.foldLeft(List[Any]())((x, y) => y :: x)
+
+            //方法三：利用递归实现
+/*            if (it.isEmpty) it
+                //把空参改为传List[Any}
+            else myReverse(it.tail) :+ it.head*/
         }
     }
 }

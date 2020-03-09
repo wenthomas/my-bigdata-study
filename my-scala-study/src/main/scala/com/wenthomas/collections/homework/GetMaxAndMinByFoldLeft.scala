@@ -11,6 +11,7 @@ import scala.collection.mutable
  */
 object GetMaxAndMinByFoldLeft extends App {
     private val list1 = List(30, 5, 7, 60, 1, 20)
+    //方法一：
     private val map = mutable.Map(("max", list1(0)), ("min", list1(0)))
 
     private val result = list1.foldLeft(map)((map, i) => {
@@ -19,4 +20,10 @@ object GetMaxAndMinByFoldLeft extends App {
         else map
     })
     println(result)
+
+    println("-----------------------------------------------")
+    //方法二：
+    private val result1: Any = list1.foldLeft((list1.head, list1.head))((tup, e) => (tup._1.max(e), tup._2.min(e)))
+    println(result1)
+
 }

@@ -319,4 +319,8 @@ object MyCashExchange extends App {
     println(myCashExchange(100, coins))
 }
 ```
-
+### 8, 泛型
+#### 8.1，泛型及隐式转换的应用
+[案例](my-scala-study/src/main/scala/com/wenthomas/genericity/MyGenericity.scala)<br/>
+#### 8.2，视图绑定
+[案例](my-scala-study/src/main/scala/com/wenthomas/genericity/MyViewBound.scala)<br/>

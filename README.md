@@ -275,6 +275,7 @@ object MySumLeaf2 extends App {
             n match {
                 case leaf: Leaf => sum += leaf.value
                 case node: Node => sum += (loop(node.left) + loop(node.right))
+                case _ => sum += 0
             }
             sum
         }

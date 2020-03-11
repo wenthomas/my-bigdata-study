@@ -9,7 +9,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <groupId>com.wenthomas.bigdata</groupId>
     <artifactId>my-spark-study</artifactId>
-
+    <name>my-spark-study</name>
 
 </project>

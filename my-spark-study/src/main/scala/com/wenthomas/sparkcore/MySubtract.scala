@@ -21,7 +21,7 @@ object MySubtract extends App {
 
     //3，转换
     //subtract():求差集
-    //注意：求差集时会去重后求差集
+    //注意：求差集时会去重后求差集，可能会发生shuffle打乱重组
     private val subtractRDD: RDD[Int] = rdd.subtract(rdd1)
 
     //4，行动算子

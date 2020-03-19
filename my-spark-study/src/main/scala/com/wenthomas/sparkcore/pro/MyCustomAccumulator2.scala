@@ -46,7 +46,12 @@ class MyAcc extends AccumulatorV2[Double, mutable.HashMap[String, Any]] {
 
     override def copy(): AccumulatorV2[Double, mutable.HashMap[String, Any]] = {
         val acc = new MyAcc
-        acc.map = map
+        //对于可变集合，应该保证线程同步
+        map.synchronized{
+            //对于可变集合，不应该直接赋值，应该进行数据的复制，否则会共享
+            acc.map ++= map
+        }
+
         acc
     }
 

@@ -12,11 +12,11 @@ import org.apache.spark.sql.{SaveMode, SparkSession}
 /**
  * 从JDBC读写数据：
  * 读数据：
- *      方式一：
- *      方式二：
+ *      方式一：load方法读取
+ *      方式二：read.jdbc方法读取
  * 写数据：
- *      方式一：
- *      方式二：
+ *      方式一：write.save
+ *      方式二：write.jdbc
  */
 object MyJDBCReadAndWrite {
 

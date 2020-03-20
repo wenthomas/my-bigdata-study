@@ -1,4 +1,4 @@
-package com.wenthomas.sparkcore.keyvalue
+package com.wenthomas.sparkcore.keyvaluerdd
 
 import org.apache.spark.{SparkConf, SparkContext}
 import org.apache.spark.rdd.RDD

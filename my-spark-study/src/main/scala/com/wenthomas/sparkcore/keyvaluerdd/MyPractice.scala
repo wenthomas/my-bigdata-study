@@ -1,6 +1,6 @@
-package com.wenthomas.sparkcore.keyvalue
+package com.wenthomas.sparkcore.keyvaluerdd
 
-import com.wenthomas.sparkcore.keyvalue.MyAggregateByKey.sc
+import com.wenthomas.sparkcore.keyvaluerdd.MyAggregateByKey.sc
 import org.apache.spark.rdd.RDD
 import org.apache.spark.{SparkConf, SparkContext}
 

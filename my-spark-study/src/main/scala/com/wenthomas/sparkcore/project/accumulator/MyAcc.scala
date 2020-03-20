@@ -75,14 +75,12 @@ class MyAcc extends AccumulatorV2[UserVisitAction, Map[(String, String), Long]] 
         // 如果是不变map, 则计算的结果, 必须重新赋值给原的map变量
         other match {
             case o: MyAcc =>
-                var merge = self.map
                 /**
                  * 注意：case模式匹配内的map不可修改，需要新建一个变量来接收迭代结果
                  */
                 self.map ++= o.map.foldLeft(self.map)({
                     case (map, (cidAction, count)) =>
-                        merge += cidAction -> (merge.getOrElse(cidAction, 0L) + count)
-                        merge
+                        map + (cidAction -> (map.getOrElse(cidAction, 0L) + count))
                 })
 
 

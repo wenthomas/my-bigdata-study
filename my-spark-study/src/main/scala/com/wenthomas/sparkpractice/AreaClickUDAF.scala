@@ -66,7 +66,7 @@ object AreaClickUDAF extends UserDefinedAggregateFunction{
                     val rate = clickCount.toDouble / totalCount
                     cityName + ":" + formatted.format(rate)
             })
-            cityList.mkString(", ") + ", 其他:" + formatted.format(remarkList.tail.tail.map(_._2).sum / totalCount)
+            cityList.mkString(", ") + ", 其他:" + formatted.format(remarkList.tail.tail.map(_._2).sum.toDouble / totalCount)
         } else {
             val cityList = remarkList.map({
                 case (cityName, clickCount) =>
@@ -77,3 +77,7 @@ object AreaClickUDAF extends UserDefinedAggregateFunction{
         }
     }
 }
+
+/*case class CityRemark(cityName: String, cityRadio: Double) {
+    new DecimalFormat()
+}*/

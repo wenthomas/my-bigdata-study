@@ -1,4 +1,4 @@
-package com.wenthomas.sparkstreaming
+package com.wenthomas.sparkstreaming.create
 
 import org.apache.spark.SparkConf
 import org.apache.spark.rdd.RDD
@@ -6,10 +6,6 @@ import org.apache.spark.streaming.{Seconds, StreamingContext}
 
 import scala.collection.mutable
 
-/**
- * @author Verno
- * @create 2020-03-23 10:28 
- */
 /**
  * 从RDD队列中读取数据
  */

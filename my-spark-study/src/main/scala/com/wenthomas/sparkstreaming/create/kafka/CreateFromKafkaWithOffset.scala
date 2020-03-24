@@ -1,4 +1,4 @@
-package com.wenthomas.sparkstreaming.kafka
+package com.wenthomas.sparkstreaming.create.kafka
 
 import kafka.common.TopicAndPartition
 import kafka.message.MessageAndMetadata

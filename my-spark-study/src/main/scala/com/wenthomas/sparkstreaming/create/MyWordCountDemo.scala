@@ -1,12 +1,8 @@
-package com.wenthomas.sparkstreaming
+package com.wenthomas.sparkstreaming.create
 
 import org.apache.spark.SparkConf
 import org.apache.spark.streaming.{Seconds, StreamingContext}
 
-/**
- * @author Verno
- * @create 2020-03-23 10:02 
- */
 /**
  * Streaming 基本编程demo
  */

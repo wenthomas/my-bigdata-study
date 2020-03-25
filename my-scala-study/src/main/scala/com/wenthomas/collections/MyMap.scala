@@ -21,6 +21,10 @@ object MyMap {
         val treeMap = TreeMap[String, Int](("tom", 27), ("bbbb", 25))
 
         println(treeMap)
+
+        val map = "verno" -> 1 + "verno" -> 2 + "tom" -> 1
+        // (((verno,1)verno,2)tom,1)
+        println(map)
     }
 
 }

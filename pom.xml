@@ -15,6 +15,7 @@
         <module>my-hadoop-study</module>
         <module>my-log-collector</module>
         <module>my-spark-study</module>
+        <module>my-spark-streaming-practice</module>
     </modules>
 
     <properties>

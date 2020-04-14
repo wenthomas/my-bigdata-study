@@ -15,14 +15,20 @@ object QuickSort {
         sort(arr1)
         println(arr1.mkString(","))
 
-        val arr = randomArr()
+/*        val arr = randomArr()
         sort(arr)
-        println(arr.mkString(","))
+        println(arr.mkString(","))*/
 
         //val arr1 = scalaQuickSort(arr)
         //println(arr1.mkString(","))
 
         //println(scalaQuickSortList(arr.toList).take(100).mkString(","))
+
+
+        //val arr2 = Array(5,4,3,2,1)
+        val arr2 = randomArr()
+        val array = scalaQuickSortWithPartition(arr2)
+        println(array.mkString(","))
 
 
     }
@@ -112,6 +118,20 @@ object QuickSort {
             case p :: rest =>
                 scalaQuickSortList(rest.filter(_ <= p)) ::: p ::scalaQuickSortList(rest.filter(_ > p))
             case Nil => Nil
+        }
+    }
+
+    /**
+     * 快速排序：使用partition算子进行左右分区
+     * @param arr
+     * @return
+     */
+    def scalaQuickSortWithPartition(arr: Array[Int]): Array[Int] = {
+        arr match {
+            case Array(p, rest@_*) =>
+                val (left, right)= rest.partition(_ <= p)
+                (scalaQuickSortWithPartition(left.toArray) :+ p) ++ scalaQuickSortWithPartition(right.toArray)
+            case _ => Array()
         }
     }
 }

@@ -99,7 +99,7 @@ class DoublyLinkedList[T] {
         if (head != null) {
             var temp = head
             do {
-                println(temp.value)
+                print(temp.value + "->")
                 temp = temp.next
             } while (temp != null)
         }

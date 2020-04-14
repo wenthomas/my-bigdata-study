@@ -24,11 +24,16 @@ class SinglyLinkedList[T] {
     //（可选）为了方便添加元素时快速找到链表尾部位置
     var tail: Node = _
 
-    //todo
-    def contain(ele: T) = {
+    def contain(ele: T): Boolean = {
         if (head == null) {
-
+            return false
         }
+        var temp = head
+        do {
+            if (temp.value == ele) return true
+            temp = temp.next
+        } while (temp != null)
+        false
     }
 
     /**

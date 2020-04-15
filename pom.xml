@@ -17,6 +17,7 @@
         <module>my-spark-study</module>
         <module>my-spark-streaming-practice</module>
         <module>my-alogorithms-study</module>
+        <module>my-flink-study</module>
     </modules>
 
     <properties>

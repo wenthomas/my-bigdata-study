@@ -1,5 +1,6 @@
 package com.wenthomas.flink.wordcount
 
+import org.apache.flink.api.java.utils.ParameterTool
 import org.apache.flink.api.scala.ExecutionEnvironment
 /**
  * @author Verno
@@ -8,7 +9,7 @@ import org.apache.flink.api.scala.ExecutionEnvironment
 /**
  * 批处理 Word count
  */
-object MyWordCount {
+object BatchWordCount {
     def main(args: Array[String]): Unit = {
         //1,创建一个flink批处理的执行环境
         val env = ExecutionEnvironment.getExecutionEnvironment

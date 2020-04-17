@@ -6,7 +6,7 @@ import org.apache.flink.api.common.serialization.SimpleStringSchema
 import org.apache.flink.api.scala._
 import org.apache.flink.streaming.api.functions.source.SourceFunction
 import org.apache.flink.streaming.api.scala.StreamExecutionEnvironment
-import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer010
+import org.apache.flink.streaming.connectors.kafka.{FlinkKafkaConsumer010, FlinkKafkaConsumer011}
 
 import scala.util.Random
 /**
@@ -58,7 +58,7 @@ object SourceDemo {
         props.setProperty("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer")
         props.setProperty("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer")
         props.setProperty("auto.offset.reset", "latest")
-        val streamFromKafka = env.addSource(new FlinkKafkaConsumer010[String]("sensor-demo", new SimpleStringSchema(), props))
+        val streamFromKafka = env.addSource(new FlinkKafkaConsumer011[String]("sensor-demo", new SimpleStringSchema(), props))
 
 
 

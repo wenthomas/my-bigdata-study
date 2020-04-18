@@ -26,14 +26,12 @@ object FileSink {
                         SensorReading(dataArray(0), dataArray(1).toLong, dataArray(2).toDouble).toString
                     }
                 })
-                .keyBy(0)
 
         //将数据流输出到文件中
-        //todo
         dataStream.addSink(
             StreamingFileSink.forRowFormat(
                 new Path("E:\\project\\my-bigdata-study\\my-flink-study\\src\\main\\resources\\output.txt"),
-                new SimpleStringEncoder[String]("utf-8")
+                new SimpleStringEncoder[String]("UTF-8")
             ).build()
         )
 

@@ -41,8 +41,9 @@ object OperatorState {
  * 自定义实现算子状态的使用：需要混入ListCheckpointed
  * 注意：由于不通过上下文环境中获取状态，服务挂掉后状态数据会丢失，
  *      此时需要混入ListCheckpointed，通过引入checkpoint机制来实现自定义算子状态的更新及恢复机制。
+ *      ListCheckpointed泛型类型需要实现序列化。
  */
-class MyMapper() extends RichMapFunction[SensorReading, Long] with ListCheckpointed[Long] {
+class MyMapper() extends RichMapFunction[SensorReading, Long] with ListCheckpointed[java.lang.Long] {
 
     /**
      * 算子状态：task范围内的共享状态，不需从上下文中获取配置
@@ -65,8 +66,8 @@ class MyMapper() extends RichMapFunction[SensorReading, Long] with ListCheckpoin
      * @param timestamp
      * @return
      */
-    override def snapshotState(checkpointId: Long, timestamp: Long): util.List[Long] = {
-        val stateList = new util.ArrayList[Long]()
+    override def snapshotState(checkpointId: Long, timestamp: Long): util.List[java.lang.Long] = {
+        val stateList = new util.ArrayList[java.lang.Long]()
         stateList.add(count)
         stateList
     }
@@ -75,9 +76,10 @@ class MyMapper() extends RichMapFunction[SensorReading, Long] with ListCheckpoin
      * 故障时，从状态后端恢复状态数据
      * @param state
      */
-    override def restoreState(state: util.List[Long]): Unit = {
-        for (countState <- state) {
-            count += countState
+    override def restoreState(state: util.List[java.lang.Long]): Unit = {
+        val iter = state.iterator()
+        while (iter.hasNext) {
+            count += iter.next()
         }
     }
 }

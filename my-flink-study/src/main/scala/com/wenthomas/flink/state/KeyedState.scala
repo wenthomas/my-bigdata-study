@@ -29,6 +29,12 @@ object KeyedState {
                     }
                 })
 
+        //todo
+        val keyedStream = dataStream.keyBy(_.id)
+                .process(new KeyedProcessor)
+
+        keyedStream.print("keyedStream")
+
         env.execute("KeyedState Demo")
     }
 

@@ -27,6 +27,8 @@ public class QuickSort {
         int temp;
 
         while (left < right) {
+            //left right坐标分别向右向左遍历，当出现比基准值pivot大的，则停止遍历并交换两者所指的值的位置
+            //使比pivot小的都在pivot的左边，比pivot大的都在pivot右边
             while (left < right && array[right] >= pivot) {
                 right --;
             }
@@ -37,6 +39,7 @@ public class QuickSort {
             array[left] = array[right];
             array[right] = temp;
 
+            //当left right指针重合时，代表这个位置就是pivot应该在的位置，赋值当前位置给pivot
             if (left == right) {
                 array[low] = array[left];
                 array[left] = pivot;

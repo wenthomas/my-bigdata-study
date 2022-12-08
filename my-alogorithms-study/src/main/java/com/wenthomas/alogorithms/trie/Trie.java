@@ -1,4 +1,4 @@
-package com.wenthomas.alogorithms;
+package com.wenthomas.alogorithms.trie;
 
 /**
  * 实现Trie（前缀树）

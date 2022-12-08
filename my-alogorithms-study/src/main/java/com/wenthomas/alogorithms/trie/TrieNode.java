@@ -1,4 +1,4 @@
-package com.wenthomas.alogorithms;
+package com.wenthomas.alogorithms.trie;
 
 /**
  * 前缀树（数据结构：每个节点都有26个子节点的数结构）

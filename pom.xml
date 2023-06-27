@@ -20,7 +20,8 @@
     </modules>
 
     <properties>
-        <JAVA_HOME>D:\Installations\Java\jdk1.8.0_172</JAVA_HOME>
+        <!-- <JAVA_HOME>D:\Installations\Java\jdk1.8.0_172</JAVA_HOME> -->
+        <JAVA_HOME>D:\Installs\Java\jdk-1.8</JAVA_HOME>
     </properties>
 
     <dependencies>

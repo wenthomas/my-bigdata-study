@@ -14,6 +14,9 @@
         <module>my-scala-study</module>
         <module>my-hadoop-study</module>
         <module>my-log-collector</module>
+        <module>my-spark-study</module>
+        <module>my-spark-streaming-practice</module>
+        <module>my-alogorithms-study</module>
     </modules>
 
     <properties>
@@ -40,6 +43,12 @@
             <artifactId>zookeeper</artifactId>
             <!-- same version with the zookeeper-->
             <version>3.4.10</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.4</version>
         </dependency>
     </dependencies>
 </project>

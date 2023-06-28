@@ -18,5 +18,10 @@ object HelloWorld {
         |第四行
         |""".stripMargin
     println(row)
+
+    var d: Int = 10;
+    var b: Int = 20;
+    var c: Int = d + b;
+    println("c = " + c);
   }
 }

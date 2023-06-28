@@ -10,11 +10,6 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>my-scala-study</module>
-        <module>my-hadoop-study</module>
-        <module>my-log-collector</module>
-        <module>my-spark-study</module>
-        <module>my-spark-streaming-practice</module>
-        <module>my-alogorithms-study</module>
     </modules>
 
     <properties>

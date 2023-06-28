@@ -18,7 +18,7 @@ object AVLTreeDemo {
                 println(tree.search(65))*/
         tree.delete(1335)
         tree.infixForeach(println)
-        println(tree.search(123).getHeight)
+        println(tree.search(10).getHeight)
         //todo: 测试
     }
 }

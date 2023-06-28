@@ -54,6 +54,20 @@ TableUtil.java
 ### 3，数据操作
 DataUtil.java
 [案例](my-hbase-study/src/main/java/com/wenthomas/hbase/DataUtil.java)<br/>
+### 4，hbase mr案例一：
+[案例](my-hbase-study/src/main/java/com/wenthomas/hbase/mr1/)
+MR读取hbase中t2表的部分数据写入到t4表中<br/>
+### 5，hbase mr案例二：
+[案例](my-hbase-study/src/main/java/com/wenthomas/hbase/mr2/)
+MR读取HDFS中的数据并写入到hbase表中<br/>
+
+
+## 四,离线数据仓库项目
+### 1，日志生成器
+[案例](my-log-collector/src/main/java/com/wenthomas/appclient/AppMain.java)<br/>
+### 2，hive自定义日志解析函数
+MyUDF.java[案例](my-hadoop-study/src/main/java/com/wenthomas/functions/MyUDF.java)<br/>
+MyUDTF.java[案例](my-hadoop-study/src/main/java/com/wenthomas/functions/MyUDTF.java)<br/>
 
 ## 五,Scala
 ### 1，HelloWorld

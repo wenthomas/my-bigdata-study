@@ -6,9 +6,12 @@ import org.apache.hadoop.hbase.Cell;
 import org.apache.hadoop.hbase.CellUtil;
 import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.client.Connection;
+import org.apache.hadoop.hbase.client.Delete;
 import org.apache.hadoop.hbase.client.Get;
 import org.apache.hadoop.hbase.client.Put;
 import org.apache.hadoop.hbase.client.Result;
+import org.apache.hadoop.hbase.client.ResultScanner;
+import org.apache.hadoop.hbase.client.Scan;
 import org.apache.hadoop.hbase.client.Table;
 import org.apache.hadoop.hbase.util.Bytes;
 
@@ -27,6 +30,8 @@ import org.apache.hadoop.hbase.util.Bytes;
  * 5. Result: scan或get的单行的所有的记录！
  * 
  * 6. Cell： 代表一个单元格，hbase提供了CellUtil.clonexxx(Cell)，来获取cell中的列族、列名和值属性！
+ * 
+ * 7. ResultScanner: 多行Result对象的集合
  */
 public class DataUtil {
 	
@@ -124,6 +129,68 @@ public class DataUtil {
 		
 	}
 	
+	//scan '表名', {STARTROW=> X,STOPROW=>X, LIMIT=>1}
+	public static void scan(Connection conn,String tableName,String nsname) throws IOException {
+		
+		//获取表对象
+		Table table = getTable(conn, tableName, nsname);
+				
+		if (table==null) {
+			return ;
+		}
+		
+		//构建scan对象
+		Scan scan = new Scan();
+		
+		//设置扫描的起始行
+		//scan.setStartRow(startRow)
+		//设置扫描的结束行
+		//scan.setStopRow(stopRow)
+		
+		//结果集扫描器
+		ResultScanner scanner = table.getScanner(scan);
+		
+		for (Result result : scanner) {
+			
+			parseResult(result);
+			
+		}
+		
+		//关闭表
+		table.close();
+		
+	}
+	
+	//delete '表名','rowkey',[列族][列][ts]
+	public static void delete(Connection conn,String tableName,String nsname,String rowkey) throws IOException {
+		
+		//获取表对象
+		Table table = getTable(conn, tableName, nsname);
+				
+		if (table==null) {
+			return ;
+		}
+		
+		//构建delete对象
+		Delete delete = new Delete(Bytes.toBytes(rowkey));
+		
+		//设置delete时的参数
+		// 删除某个具体的列,为此列的最新的cell，添加一条type=DELETE的标记，只能删除最新的一条记录，如果有
+		// 历史版本的记录，无法删除
+		//delete.addColumn(Bytes.toBytes("cf1"), Bytes.toBytes("age"));
+		
+		//删除指定列的所有版本的数据，为当前列生成一个type=DeleteColumn的标记的记录
+		//delete.addColumns(Bytes.toBytes("cf1"), Bytes.toBytes("age"));
+		
+		//删除整个列族
+		delete.addFamily(Bytes.toBytes("cf2"));
+		
+		table.delete(delete);
+		
+		//关闭表
+		table.close();
+		
+	}
 	
 	
 

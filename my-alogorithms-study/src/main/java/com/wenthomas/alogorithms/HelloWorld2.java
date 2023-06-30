@@ -1,7 +1,5 @@
 package com.wenthomas.alogorithms;
 
-import scala.Int;
-
 public class HelloWorld2 {
 
 

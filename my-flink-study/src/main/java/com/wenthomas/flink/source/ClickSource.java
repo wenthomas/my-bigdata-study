@@ -18,8 +18,8 @@ public class ClickSource implements SourceFunction<SampleEvent> {
         //在指定的数据集中随机选取数据
         Random random = new Random();
 
-        String[] users = {"Mary", "Alice", "Bob", "Cary"};
-        String[] urls = {"./home", "./cart", "./fav", "./prod?id=1", "./prod?id=2"};
+        String[] users = {"Mary", "Alice", "Bob", "Cary", "Tom", "Jerry"};
+        String[] urls = {"./home", "./cart", "./fav", "./prod?id=1", "./prod?id=2", "./refund"};
 
         while (running) {
             ctx.collect(new SampleEvent(

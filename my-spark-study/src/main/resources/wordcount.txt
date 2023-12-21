@@ -1,0 +1,14 @@
+hello world
+hello spark
+hello wordcount
+spark core
+spark sql
+flink sql
+hive sql
+linux
+zookeeper
+mysql hbase clickhouse
+mysql service
+hadoop map reduce
+mapreduce
+jenkins azkaban
